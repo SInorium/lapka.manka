@@ -1,0 +1,8 @@
+/man-ka
+/man-ka.db*
+/state/
+.env
+.env.*
+*.pem
+*.key
+*.mobileconfig

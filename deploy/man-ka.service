@@ -1,0 +1,20 @@
+[Unit]
+Description=man-ka VPN panel
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+StateDirectory=man-ka
+StateDirectoryMode=0700
+WorkingDirectory=/var/lib/man-ka
+Environment=MAN_KA_ORIGIN=https://lapka.man-ka.ru
+Environment=MAN_KA_LISTEN=127.0.0.1:8080
+LoadCredential=admin-password:/etc/man-ka/admin-password
+ExecStart=/usr/local/bin/man-ka
+Restart=on-failure
+UMask=0077
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target
